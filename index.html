@@ -1,0 +1,53 @@
+<!DOCTYPE=html>
+<html lang=ja>
+<head>
+  <meta charset="utf-8">
+  <title>嘘だよーん</title>
+  <link rel="stylesheet" href="onekuri.css">
+</head>
+<body background="https://t3.ftcdn.net/jpg/05/29/18/72/360_F_529187204_rZgaFYLDeQ75AlGcbRop20TvAkFjhMIP.jpg">
+  <div class="midashi">
+    <h1>登録完了</h1>
+<div class="red-text">
+   <p>お客様の会員登録が完了しました。</p>
+<p>今日中に5087332円お支払いください。</p>
+<div class="countdown-container">
+  <h3>残り時間</h3>
+  <div class="time-container">
+    <p class="time"><span id="hour"></span>時間</p>
+    <p class="time"><span id="min"></span>分</p>
+    <p class="time"><span id="sec"></span>秒</p>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+  const hour = document.getElementById("hour");
+const min = document.getElementById("min");
+const sec = document.getElementById("sec");
+
+function countdown() {
+  const now = new Date(); // 現在時刻を取得
+  const tomorrow = new Date(now.getFullYear(),now.getMonth(),now.getDate()+1); // 明日の0:00を取得
+  const diff = tomorrow.getTime() - now.getTime(); // 時間の差を取得（ミリ秒）
+
+  // ミリ秒から単位を修正
+  const calcHour = Math.floor(diff / 1000 / 60 / 60);
+  const calcMin = Math.floor(diff / 1000 / 60) % 60;
+  const calcSec = Math.floor(diff / 1000) % 60;
+
+  // 取得した時間を表示（2桁表示）
+  hour.innerHTML = calcHour < 10 ? '0' + calcHour : calcHour;
+ min.innerHTML = calcMin < 10 ? '0' + calcMin : calcMin;
+    sec.innerHTML = calcSec < 10 ? '0' + calcSec : calcSec;
+}
+countdown();
+setInterval(countdown,1000);
+</script>
+<p>お支払いが確認できない場合<strong>法的措置</strong>を取らせていただきますのでご了承ください。</p>
+</div>
+</div>
+<div class="otoiawase">
+<a href="https://www.youtube.com/watch?v=UCwasWrZuUg"><img src="https://frame-illust.com/fi/wp-content/uploads/2016/04/contact-or300.png"></a>
+</div>
+</body>
+        </html>
